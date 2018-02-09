@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(39, 34, 34)
+}
+#console {
+  font-family: courier, monospace;
+  color: rgb(92, 226, 250);
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+  font-size:16px;
+}
+a {
+  color: rgb(218, 68, 68);
+  text-decoration: none;
+}
+#a {
+  color: #0f0;
+}
+#c {
+  color: rgb(107, 105, 231);
+}
+#b {
+  color: #ff0096;
+}
+#serverIncome {
+    color: #1ef199;
+}
