@@ -47,7 +47,6 @@ note: getMentionsTimeline Requests / 15-min window (user auth) == 75 *** 75/15 =
 */
 setInterval(() => {
     twitter.getMentionsTimeline({ count: '10'}, error, FavBot);
-    FavBot(data);
 }, 12000) //means every 12 sec we have request and in one minutes we can get 5 (limited) request from twitter api
 
 //Callback functions
