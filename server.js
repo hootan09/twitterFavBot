@@ -59,7 +59,7 @@ var FavBot = function (data) {
     var newdata=JSON.parse(data);
     newdata.forEach(element => {
         if(!element.favorited){
-            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{id: element.id}, error, (data) =>{
+            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{id: element.id.toString()}, error, (data) =>{
                 console.log('ok Faved: ' , data);
                 io.emit('message' , element);
                 
