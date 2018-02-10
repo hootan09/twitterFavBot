@@ -52,8 +52,6 @@ setInterval(() => {
 //Callback functions
 var error = function (err, response, body) {
     console.log('ERROR From twitter api: [%s]', JSON.stringify(err));
-    //console.log('response From twitter api: [%s]', JSON.stringify(response));
-    //console.log('error body From twitter api: [%s]', JSON.stringify(body));
     //io.emit('error' , err);
 };
 var FavBot = function (data) {
@@ -63,7 +61,8 @@ var FavBot = function (data) {
         if(!element.favorited){
             //twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{name: 'twitterFavBot' , id: element.id_str }, error, (data) =>{
             twitter.postCustomApiCall('/favorites/create.json',{name: 'twitterFavBot' , id: element.id_str }, error, (data) =>{
-                console.log('ok Faved: ' , data);
+                //console.log('ok Faved: ' , data);
+                console.log('ok Faved');
                 io.emit('message' , element);
             });
         }
