@@ -54,7 +54,7 @@ var error = function (err, response, body) {
     console.log('ERROR From twitter api: [%s]', err);
     console.log('response From twitter api: [%s]', response);
     console.log('error body From twitter api: [%s]', body);
-    io.emit('error' , err);
+    io.emit('error' , {err , response , body});
 };
 var FavBot = function (data) {
     //console.log('Data From twitter api: [%s]', data);
