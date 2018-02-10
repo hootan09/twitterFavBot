@@ -41,7 +41,7 @@ copy the `twitter_config.json` file over into `data/twitter_config.json`
 Open `data/twitter_config` and supply your applications `consumerKey`, 'consumerSecret', 'accessToken', 'accessTokenSecret', 'callBackUrl' to the appropriate fields in your data/twitter_config.json file
 */
 var twitter = new Twitter(config);
-
+const TWITTER_BASE_URL = 'https://api.twitter.com/1.1';//for directly post to api
 /* 
 note: getMentionsTimeline Requests / 15-min window (user auth) == 75 *** 75/15 = 5 request/minutes
 */
@@ -54,15 +54,15 @@ var error = function (err, response, body) {
     console.log('ERROR From twitter api: [%s]', err);
 };
 var FavBot = function (data) {
-    console.log('Data From twitter api: [%s]', data);
+    //console.log('Data From twitter api: [%s]', data);
     var newdata=JSON.parse(data);
     newdata.forEach(element => {
         if(!element.favorited){
-            //twitter.postCustomApiCall('/favorites/create.json',{id: element.id}, error, (data) =>{
-                //console.log('ok Faved: ' , data);
+            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{id: element.id}, error, (data) =>{
+                console.log('ok Faved: ' , data);
                 io.emit('message' , element);
                 
-            //});
+            });
         }
     });
 
