@@ -61,9 +61,10 @@ var FavBot = function (data) {
     var newdata=JSON.parse(data);
     newdata.forEach(element => {
         if(!element.favorited){
-            io.emit('message' , element);
-            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{name: 'twitterFavBot' , id: element.id_str }, error, (data) =>{
-                console.log('ok Faved: ' , data);  
+            //twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{name: 'twitterFavBot' , id: element.id_str }, error, (data) =>{
+            twitter.postCustomApiCall('/favorites/create.json',{name: 'twitterFavBot' , id: element.id_str }, error, (data) =>{
+                console.log('ok Faved: ' , data);
+                io.emit('message' , element);
             });
         }
     });
