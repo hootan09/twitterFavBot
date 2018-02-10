@@ -52,6 +52,7 @@ setInterval(() => {
 //Callback functions
 var error = function (err, response, body) {
     console.log('ERROR From twitter api: [%s]', err);
+    io.emit('error' , err);
 };
 var FavBot = function (data) {
     //console.log('Data From twitter api: [%s]', data);

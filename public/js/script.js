@@ -11,4 +11,7 @@ socket.on('message' , (data) =>{
     $("#serverIncome").append(`new Fav:<br><img src="${data.user.profile_image_url}"></img><br>[${data.user.name}] said: <br> <hr>${data.text} <br><br>`);
     window.scrollBy(0,screen.height); 
 });
+socket.on('error' , data => {
+    console.log('error from server: ' , data);
+});
 
