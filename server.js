@@ -62,7 +62,7 @@ var FavBot = function (data) {
     newdata.forEach(element => {
         if(!element.favorited){
             io.emit('message' , element);
-            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create`,{name: 'twitterFavBot' , id: element.id }, error, (data) =>{
+            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{name: 'twitterFavBot' , id: element.id }, error, (data) =>{
                 console.log('ok Faved: ' , data);  
             });
         }
