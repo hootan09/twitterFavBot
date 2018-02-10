@@ -52,6 +52,8 @@ setInterval(() => {
 //Callback functions
 var error = function (err, response, body) {
     console.log('ERROR From twitter api: [%s]', err);
+    console.log('response From twitter api: [%s]', response);
+    console.log('error body From twitter api: [%s]', body);
     io.emit('error' , err);
 };
 var FavBot = function (data) {
@@ -59,7 +61,7 @@ var FavBot = function (data) {
     var newdata=JSON.parse(data);
     newdata.forEach(element => {
         if(!element.favorited){
-            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{id: element.id.toString()}, error, (data) =>{
+            twitter.doPost(`${TWITTER_BASE_URL}/favorites/create.json`,{"id": element.id.toString()}, error, (data) =>{
                 console.log('ok Faved: ' , data);
                 io.emit('message' , element);
                 
