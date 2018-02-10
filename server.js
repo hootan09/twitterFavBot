@@ -57,13 +57,13 @@ var FavBot = function (data) {
     console.log('Data From twitter api: [%s]', data);
     var newdata=JSON.parse(data);
     newdata.forEach(element => {
-        //if(!element.favorited){
+        if(!element.favorited){
             //twitter.postCustomApiCall('/favorites/create.json',{id: element.id}, error, (data) =>{
                 //console.log('ok Faved: ' , data);
                 io.emit('message' , element);
                 
             //});
-        //}
+        }
     });
 
 };
