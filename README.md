@@ -18,6 +18,10 @@ npm install
 node server.js //then open youre browser http://localhost:3000
 ```
 
+## Preview/Screenshot
+
+![server](https://github.com/hootan09/twitterFavBot/blob/master/pic/pic.jpg)
+
 ## Orginal Repo
 This Repo is the master Bot Api [Twitter Bot](https://github.com/BoyCook/TwitterJSClient)
 
@@ -76,7 +80,7 @@ var Twitter = require('twitter-js-client').Twitter;
 Twitter has a comprehensive [REST api](https://dev.twitter.com/rest/public) if you need to use something that doesn't have a wrapper function in the library call it directly : 
 ```javascript
 	twitter.getCustomApiCall('/statuses/lookup.json',{ id: '412312323'}, error, success);
-	twitter.postCustomApiCall('/direct_messages/new.json',{user_id: '1234', 'text':'This is easy.'}, error, success);
+	twitter.postCustomApiCall('/direct_messages/new.json',{user_id: '1234', 'text':'This is easy.'}, error, success); //maybe not works use this 'twitter.dopost(url , {id=''} , error , success )'
 ```
 To get the list of expected parameters and results, check [https://dev.twitter.com/rest/public](https://dev.twitter.com/rest/public)
 
